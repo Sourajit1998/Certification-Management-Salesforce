@@ -1,0 +1,8 @@
+.v-tile {
+    border: 1px solid #d2955d;
+    border-radius: .25rem;
+    display: block;
+}
+.v-silhouette {
+    height: 100px;
+}

@@ -1,0 +1,26 @@
+<template>
+        <div class="slds-box slds-theme_default">
+            <lightning-tabset>
+                <lightning-tab label="Employees" value="1" onactive={handleActive}>
+                </lightning-tab>
+                <lightning-tab label="Vouchers" value="2" onactive={handleActive}>
+                </lightning-tab>
+                <lightning-tab label="Certification Requests" value="3" onactive={handleActive}>
+                </lightning-tab>
+                <lightning-tab label="Certifications" value="4" onactive={handleActive}>
+                </lightning-tab>
+                <template if:true={employeeIsSelected}>
+                    <c-employee-list-view></c-employee-list-view>
+                </template>
+                <template if:true={voucherIsSelected}>
+                    <c-voucher-list-view></c-voucher-list-view>
+                </template>
+                <template if:true={certRequestIsSelected}>
+                    <c-certification_request-list-view></c-certification_request-list-view>
+                </template>
+                <template if:true={certificationIsSelected}>
+                    <c-certifications-list-view></c-certifications-list-view>
+                </template>
+            </lightning-tabset>
+        </div>
+</template>

@@ -1,0 +1,77 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/certManagement": [
+                "certManagement/certManagement.js"
+            ],
+            "c/employeeListView": [
+                "employeeListView/employeeListView.js"
+            ],
+            "c/voucherListView": [
+                "voucherListView/voucherListView.js"
+            ],
+            "c/employeeEditButtonOverride": [
+                "employeeEditButtonOverride/employeeEditButtonOverride.js"
+            ],
+            "c/voucherEditButtonOverride": [
+                "voucherEditButtonOverride/voucherEditButtonOverride.js"
+            ],
+            "c/charts": [
+                "charts/charts.js"
+            ],
+            "c/recordPage": [
+                "recordPage/recordPage.js"
+            ],
+            "c/certification_requestEditButtonOverride": [
+                "certification_requestEditButtonOverride/certification_requestEditButtonOverride.js"
+            ],
+            "c/certificationEditButtonOverride": [
+                "certificationEditButtonOverride/certificationEditButtonOverride.js"
+            ],
+            "c/certification_requestListView": [
+                "certification_requestListView/certification_requestListView.js"
+            ],
+            "c/certificationsListView": [
+                "certificationsListView/certificationsListView.js"
+            ],
+            "c/deleteButtonOverride": [
+                "deleteButtonOverride/deleteButtonOverride.js"
+            ],
+            "c/employeeNewButtonOverride": [
+                "employeeNewButtonOverride/employeeNewButtonOverride.js"
+            ],
+            "c/certificationNewButtonOverride": [
+                "certificationNewButtonOverride/certificationNewButtonOverride.js"
+            ],
+            "c/certificationRequestNewButtonOverride": [
+                "certificationRequestNewButtonOverride/certificationRequestNewButtonOverride.js"
+            ],
+            "c/voucherNewButtonOverride": [
+                "voucherNewButtonOverride/voucherNewButtonOverride.js"
+            ],
+            "c/employeeNewButton": [
+                "employeeNewButton/employeeNewButton.js"
+            ],
+            "c/voucherNewButton": [
+                "voucherNewButton/voucherNewButton.js"
+            ],
+            "c/certReqNewButton": [
+                "certReqNewButton/certReqNewButton.js"
+            ],
+            "c/certificationNewButton": [
+                "certificationNewButton/certificationNewButton.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

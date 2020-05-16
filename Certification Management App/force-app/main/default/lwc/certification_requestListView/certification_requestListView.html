@@ -1,0 +1,49 @@
+<template>
+	<lightning-card title="Certification Requests" icon-name="custom:custom18">
+		<div class="slds-card__body_inner">
+			<template if:true={listViewResult}>
+				<lightning-input type="search"
+                    onchange={handleSearchTermChange}
+                    variant="label-hidden"
+                    class="slds-m-bottom_small"
+                    label="Search"
+                    placeholder="Search by Certification request number or Status"
+                    value={searchTerm}>
+                </lightning-input>
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={listViewResult} for:item="item">
+						<lightning-layout-item key={item.Id} size="4" class="slds-p-around_x-small">
+							<lightning-card title={item.Name} class="cr-tile">
+								<div class="slds-p-horizontal_small">
+									<div class="slds-media">
+										<div class="slds-media__figure">
+											<img src={cert_reqIcon} alt="Certification Request details" class="cr-silhouette"/>
+										</div>
+										<div class="slds-media__body">
+											<p class="slds-m-bottom_xx-small">Employee: {item.Employee__r.Name}</p>
+											<p class="slds-m-bottom_xx-small">Certification: {item.Certification__r.Name}</p>
+                                            <p class="slds-m-bottom_xx-small">Status: {item.Status__c}</p>
+                                            <button class="slds-button slds-button_outline-brand" key={item.Id} title="View Certification Request Details" onclick={handleCertificationRequestView} value={item.Id}>View Details</button>
+										</div>
+									</div>
+								</div>
+							</lightning-card>
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+				<!-- No Certification requests found -->
+				   <template if:false={hasResults}>
+                    <div class="slds-align_absolute-center slds-m-vertical_small">
+                        Sorry, We did not find any results...
+                    </div>
+                   </template>
+			</template>
+			<!-- Data failed to load -->
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the Certification Request list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

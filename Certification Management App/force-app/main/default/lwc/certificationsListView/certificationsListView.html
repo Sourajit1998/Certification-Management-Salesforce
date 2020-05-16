@@ -1,0 +1,48 @@
+<template>
+	<lightning-card title="Certifications" icon-name="custom:custom62">
+		<div class="slds-card__body_inner">
+			<template if:true={listViewResult}>
+				<lightning-input type="search"
+                    onchange={handleSearchTermChange}
+                    variant="label-hidden"
+                    class="slds-m-bottom_small"
+                    label="Search"
+                    placeholder="Search by Certification Id or Name"
+                    value={searchTerm}>
+                </lightning-input>
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={listViewResult} for:item="item">
+						<lightning-layout-item key={item.Id} size="3" class="slds-p-around_x-small">
+							<lightning-card title={item.Name} class="cert-tile">
+								<div class="slds-p-horizontal_small">
+									<div class="slds-media">
+										<div class="slds-media__figure">
+											<img src={certIcon} alt="Certification details" class="cert-silhouette"/>
+										</div>
+										<div class="slds-media__body">
+											<br>
+											<p class="slds-m-bottom_xx-small">ID: {item.Cert_Id__c}</p>
+                                            <button class="slds-button slds-button_outline-brand" key={item.Id} title="View Certification Details" onclick={handleCertificationView} value={item.Id}>View Details</button>
+										</div>
+									</div>
+								</div>
+							</lightning-card>
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+				<!-- No certifications found -->
+				<template if:false={hasResults}>
+					<div class="slds-align_absolute-center slds-m-vertical_small">
+						Sorry, We did not find any results...
+					</div>
+				</template>
+			</template>
+			<!-- Data failed to load -->
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the Certification list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

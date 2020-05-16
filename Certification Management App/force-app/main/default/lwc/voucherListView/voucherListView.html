@@ -1,0 +1,48 @@
+<template>
+	<lightning-card title="Vouchers" icon-name="standard:quotes">
+		<div class="slds-card__body_inner">
+			<template if:true={listViewResult}>
+                <lightning-input type="search"
+                    onchange={handleSearchTermChange}
+                    variant="label-hidden"
+                    class="slds-m-bottom_small"
+                    label="Search"
+                    placeholder="Search by Voucher Id"
+                    value={searchTerm}>
+                </lightning-input>
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={listViewResult} for:item="item">
+						<lightning-layout-item key={item.Id} size="4" class="slds-p-around_x-small">
+							<lightning-card title={item.Name} class="v-tile">
+								<div class="slds-p-horizontal_small">
+									<div class="slds-media">
+										<div class="slds-media__figure">
+											<img src={voucherIcon} alt="Voucher details" class="v-silhouette"/>
+										</div>
+										<div class="slds-media__body">
+											<p class="slds-m-bottom_xx-small">ID: {item.Voucher_Id__c}</p>
+                                            <p class="slds-m-bottom_xx-small">Active: {item.Active__c}</p>
+                                            <button class="slds-button slds-button_outline-brand" key={item.Id} title="View Voucher Details" onclick={handleVoucherView} value={item.Id}>View Details</button>
+										</div>
+									</div>
+								</div>
+							</lightning-card>
+						</lightning-layout-item>
+					</template>
+                </lightning-layout>
+                   <!-- No vouchers found -->
+                   <template if:false={hasResults}>
+                    <div class="slds-align_absolute-center slds-m-vertical_small">
+                        Sorry, We did not find any results...
+                    </div>
+                   </template>
+			</template>
+			<!-- Data failed to load -->
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the Voucher list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>
